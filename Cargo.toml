@@ -1,0 +1,23 @@
+[package]
+name = "skin"
+description = "Simple command to get all possible metadata of a file."
+documentation = "https://github.com/LyonSyonII/skin-rs"
+repository = "https://github.com/LyonSyonII/skin-rs"
+keywords = ["algorithms", "filesystem"]
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+version = "0.1.0"
+authors = ["Liam G <liam.garriga@tutanota.com>"]
+edition = "2021"
+
+[dependencies]
+clap = { version = "3.2.7", features = ["derive"] }
+rayon = "1.5.3"
+parking_lot = "0.12.1"
+mimalloc = { version = "0.1.29", default-features = false }
+colored = { version = "2.0.0", features = [] }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+incremental = true
